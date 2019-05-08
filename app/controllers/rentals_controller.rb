@@ -5,12 +5,12 @@ class RentalsController < ApplicationController
   def index
     @rentals = Rental.all
 
-    render json: @rentals
+    render json: @rentals, adapter: :json_api
   end
 
   # GET /rentals/1
   def show
-    render json: @rental
+    render json: @rental, serializer: RentalSerializer, adapter: :json_api
   end
 
   # POST /rentals
