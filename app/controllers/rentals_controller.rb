@@ -45,6 +45,10 @@ class RentalsController < ApplicationController
 
     def rental_params
       # require(:rental) # We should have this
-      params.permit(:title, :owner, :city, :category, :bedrooms, :image, :description)
+      # params.require(:data).permit(:data, :type, :title, :owner, :city, :category, :bedrooms, :image, :description)
+
+      p params
+
+      ActiveModelSerializers::Deserialization.jsonapi_parse!(params)
     end
 end
